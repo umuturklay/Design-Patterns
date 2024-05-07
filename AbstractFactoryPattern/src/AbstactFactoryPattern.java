@@ -127,7 +127,7 @@ class BuildBundle {
 
 
 
-class Main {
+class AbstractFactoryPattern {
     public static void main(String[] args) {
         FurnitureFactory artModernCompany = new ArtModernCompanyChairFactory();
         FurnitureFactory historyFurniture = new HistoryFurnitureFactory();
