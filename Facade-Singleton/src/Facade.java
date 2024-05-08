@@ -1,9 +1,11 @@
 class Facade {
     public static void main(String[] args) {
-        Ecosystem ecosystem = new Ecosystem();
+        Ecosystem ecosystem = Ecosystem.getInstance();
+        Ecosystem ecosystem1 = Ecosystem.getInstance();
 
         String input = "I want to watch a movie with Cinema mod on Netflix...";
         ecosystem.Choose(input);
+        ecosystem1.Choose(input);
         System.out.println("Enjoy...");
     }
 }
@@ -36,13 +38,21 @@ class StreamingDevice{
 
 //Facade
 class Ecosystem{
+    private static Ecosystem uniqueObject = null;
     private StreamingDevice streamingDevice;
     private SoundBar soundBar;
     private TV tv;
-    public Ecosystem(){
+
+    private Ecosystem(){
         streamingDevice = new StreamingDevice();
         soundBar = new SoundBar();
         tv = new TV();
+    }
+    public static Ecosystem getInstance(){
+        if(uniqueObject == null){
+            uniqueObject = new Ecosystem();
+        }
+        return uniqueObject;
     }
     public void Choose(String input){
         tv.turnOn();
