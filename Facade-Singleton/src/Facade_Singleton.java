@@ -1,4 +1,4 @@
-class Facade {
+class Facade_Singleton {
     public static void main(String[] args) {
         Ecosystem ecosystem = Ecosystem.getInstance();
         Ecosystem ecosystem1 = Ecosystem.getInstance();
